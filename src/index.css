@@ -1,0 +1,12 @@
+#todoList li div.todo-name {
+    cursor: pointer;
+}
+#todoList li.completed div.todo-name {
+    text-decoration: line-through;
+}
+#todoList li .btn-danger {
+    display: none;
+}
+#todoList li.destroy .btn-danger {
+    display: inline-block;
+}
