@@ -5,6 +5,7 @@ import { store } from "./storage/store";
 import CreateTodoComponent from "./components/CreateTodoComponent";
 import TodosListComponent from "./components/TodosListComponent";
 import NavComponent from "./components/NavComponent";
+import { ListFilter } from "./types/ListFilter";
 
 const App: React.FC = () => {
   return (
@@ -16,8 +17,8 @@ const App: React.FC = () => {
         <CreateTodoComponent />
         <BrowserRouter>
           <Routes>
-            <Route path="/active" element={<TodosListComponent filter="active" />}></Route>
-            <Route path="/completed" element={<TodosListComponent filter="completed" />}></Route>
+            <Route path="/active" element={<TodosListComponent filter={ListFilter.Active} />}></Route>
+            <Route path="/completed" element={<TodosListComponent filter={ListFilter.Completed} />}></Route>
             <Route path="/" element={<TodosListComponent />}></Route>
           </Routes>
           <NavComponent />

@@ -1,26 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
-import { debounce } from "debounce";
 import todosReducer from "./todosSlice";
 import { loadState, saveState } from "./localStorage";
 
-const WRITE_FREQ_MS = 800;
-
-const reducers = combineReducers({
+const combinedReducers = combineReducers({
   todos: todosReducer,
+  /* Not vital for our case, but we keep it for future extending & transparency. */
 });
 
 export const store = configureStore({
   devTools: true,
-  reducer: reducers,
+  reducer: combinedReducers,
   preloadedState: loadState(),
 });
 
-store.subscribe(
-  debounce(() => {
-    saveState(store.getState());
-  }, WRITE_FREQ_MS)
-);
+
+store.subscribe(() => {
+  /* TODO: Debounce in case of intensive I/O. */
+  saveState(store.getState());
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

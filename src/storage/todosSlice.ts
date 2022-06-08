@@ -40,6 +40,26 @@ export const todosSlice = createSlice({
         }
       });
     },
+    setTodoCompleted: (
+        state,
+        action: PayloadAction<Exclude<ITodo["id"], undefined>>
+    ) => {
+      state.todos.forEach((todo, idx) => {
+        if (todo.id === action.payload) {
+          state.todos[idx].completed = true;
+        }
+      });
+    },
+    setTodoPending: (
+        state,
+        action: PayloadAction<Exclude<ITodo["id"], undefined>>
+    ) => {
+      state.todos.forEach((todo, idx) => {
+        if (todo.id === action.payload) {
+          state.todos[idx].completed = false;
+        }
+      });
+    },
     renameTodo: (
       state,
       action: PayloadAction<ITodo>
@@ -53,7 +73,7 @@ export const todosSlice = createSlice({
   },
 });
 
-export const { createTodo, deleteTodo, toggleTodoCompleted, renameTodo } = todosSlice.actions;
+export const { createTodo, deleteTodo, toggleTodoCompleted, renameTodo, setTodoCompleted, setTodoPending } = todosSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos.todos;
 

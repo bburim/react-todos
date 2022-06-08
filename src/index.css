@@ -10,3 +10,12 @@
 #todoList li.destroy .btn-danger {
     display: inline-block;
 }
+#footer .btn.btn-link {
+    height: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+#footer .navbar-text {
+    padding: 0px;
+    margin: 0px;
+}
