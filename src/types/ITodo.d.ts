@@ -1,4 +1,4 @@
-export interface ITodo {
+interface ITodo {
   id?: number;
   title: string;
   completed: boolean;

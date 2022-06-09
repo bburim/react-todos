@@ -9,7 +9,6 @@ import {
   toggleTodoCompleted as toggleAction,
   renameTodo as renameAction,
 } from "../storage/todosSlice";
-import { ITodo } from "../types/ITodo";
 
 interface Props {
   todo: ITodo;

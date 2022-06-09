@@ -24,10 +24,12 @@ const TodosListComponent: React.FC<Props> = ({ filter = ListFilter.All }) => {
   const toggleAllCompleted = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       filtered.forEach(function (todo) {
+        if (typeof todo.id !== "number") return;
         dispatch(setCompletedAction(todo.id))
       })
     } else {
       filtered.forEach(function (todo) {
+        if (typeof todo.id !== "number") return;
         dispatch(setPendingAction(todo.id))
       })
     }

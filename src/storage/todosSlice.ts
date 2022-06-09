@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 import { ITodosState } from "../types/ITodosState";
-import { ITodo } from "../types/ITodo";
 
 const initialState: ITodosState = {
   todos: [],
